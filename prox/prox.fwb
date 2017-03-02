@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE FWObjectDatabase SYSTEM "fwbuilder.dtd">
-<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1488197796" id="root">
+<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1488421196" id="root">
   <Library id="syslib000" color="#d4f8ff" name="Standard" comment="Standard objects" ro="True">
     <AnyNetwork id="sysid0" name="Any" comment="Any Network" ro="False" address="0.0.0.0" netmask="0.0.0.0"/>
     <AnyIPService id="sysid1" protocol_num="0" name="Any" comment="Any IP Service" ro="False"/>
@@ -1117,6 +1117,8 @@
         <TCPService id="id5412X1560" ack_flag="False" ack_flag_mask="False" established="False" fin_flag="False" fin_flag_mask="False" psh_flag="False" psh_flag_mask="False" rst_flag="False" rst_flag_mask="False" syn_flag="False" syn_flag_mask="False" urg_flag="False" urg_flag_mask="False" name="port8085" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="8085" dst_range_end="8085"/>
         <TCPService id="id5444X9960" ack_flag="False" ack_flag_mask="False" established="False" fin_flag="False" fin_flag_mask="False" psh_flag="False" psh_flag_mask="False" rst_flag="False" rst_flag_mask="False" syn_flag="False" syn_flag_mask="False" urg_flag="False" urg_flag_mask="False" name="port8082" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="8082" dst_range_end="8082"/>
         <TCPService id="id5582X9180" ack_flag="False" ack_flag_mask="False" established="False" fin_flag="False" fin_flag_mask="False" psh_flag="False" psh_flag_mask="False" rst_flag="False" rst_flag_mask="False" syn_flag="False" syn_flag_mask="False" urg_flag="False" urg_flag_mask="False" name="ntopng" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="3000" dst_range_end="3000"/>
+        <TCPService id="id5494X11552" ack_flag="False" ack_flag_mask="False" established="False" fin_flag="False" fin_flag_mask="False" psh_flag="False" psh_flag_mask="False" rst_flag="False" rst_flag_mask="False" syn_flag="False" syn_flag_mask="False" urg_flag="False" urg_flag_mask="False" name="VNC server (5500)" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="5500" dst_range_end="5500"/>
+        <TCPService id="id5513X11552" ack_flag="False" ack_flag_mask="False" established="False" fin_flag="False" fin_flag_mask="False" psh_flag="False" psh_flag_mask="False" rst_flag="False" rst_flag_mask="False" syn_flag="False" syn_flag_mask="False" urg_flag="False" urg_flag_mask="False" name="VNC viewer (5900)" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="5900" dst_range_end="5900"/>
       </ServiceGroup>
       <ServiceGroup id="id4052X5564" name="UDP" comment="" ro="False">
         <UDPService id="id5120X4548" name="OpenVPN-UDP" comment="" ro="False" src_range_start="0" src_range_end="0" dst_range_start="1194" dst_range_end="1194"/>
@@ -1126,7 +1128,7 @@
       <ServiceGroup id="id4055X5564" name="TagServices" comment="" ro="False"/>
     </ServiceGroup>
     <ObjectGroup id="id4056X5564" name="Firewalls" comment="" ro="False">
-      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1488199590" lastInstalled="1488200055" lastModified="1488197927" platform="iptables" version="1.4.4" name="prox" comment="2010.11.10&#10;-- Добавил правило Remote Admin в таблицу NAT (для Мухи)&#10;2010.03.17&#10;-- Добавил проброс порта 3724 к компу Саши Коско&#10;2010.12.21&#10;-- открыл порт 8118 для внутренних клиентов (для TOR)&#10;-- открыл порт 9001 для внешних клиентов (для TOR relay)&#10;2010.12.22&#10;-- открыл порты (внутри) для работы ftp &#10;2011.01.14&#10;-- кроме порта 8080, открыл еще доступ к 8081 и 8082 изнутри (правило 9 &quot;allow connections to proxy server&quot;, service proxy8080)&#10;2011.01.18&#10;-- Добавил новый внешний интерфейс eth2 93.125.39.151&#10;-- настроил nat для отправки пакетов от vip-пользователей (группа nat-vip-users) через второй интернет-канал&#10;-- Удалил неиспользуемые сервисы (от коммунигейта, а также deluge и transmission torrent clients)&#10;-- Разрешил NAT всем внутренник клиентам к mail.gto.by&#10;&#10;2011.01.31&#10;-- Разрешил DHCP изнутри&#10;&#10;2011.02.18&#10;-- поменял eth0 и eth1 (чтобы гигабитный eth0 смотрел в локалкó)&#10;&#10;2011.03.01:&#10;-- добавил достóп из внóтренней сети к firebird dbms (порт 3050)&#10;&#10;2012.01.25:&#10;-- открыл НАТ к www.nalog.by - чтобы обновлялась программа Edeclaration&#10;&#10;2014.11.21:&#10;-- Добавил хост для NAT: 213.184.237.51   (nat-dst-serv5(brest-clientbank)-1)&#10;&#10;2014.11.25:&#10;-- Добавил хост 192.168.200.11 (nat_reserve4) к группе nat-vip-users&#10;&#10;2015.02.02&#10;-- Переименовал хосты nat_reserveXX, чтобы число в конце совпадала с последним числом ip-адреса&#10;-- Добавил хосты nat_reserve11 - nat_reserve20&#10;-- Добавил хосты nat_reserve08 - nat_reserve20 к группе nat-vip-users&#10;&#10;2015.04.26&#10;-- Добавил разрешение для входящих соединений OpenVPN на порт 1194&#10;&#10;2015.09.29&#10;-- Добавил хост ubuntu-serv1 (.2) и добавил его в группу vip-nat&#10;&#10;2016.02.18 &#10;-- убрал адреса серверов клиент-банка для Бреста&#10;-- Поменял порты для клиент-банка БПС-Сбербанка&#10;&#10;2016.03.15&#10;-- открыл доступ к http снаружи&#10;&#10;2016.04.04&#10;-- Добавил NAT для адресов .2-.29 и .220-.253&#10;&#10;2016.04.20&#10;-- Открыл доступ из внутренней сети к портам 8088, 18080&#10;&#10;2016.08.02&#10;-- Открыл доступ из внутренней сети к порту 8085&#10;&#10;2016.10.21&#10;-- Открыл доступ извне к 192.168.200.5:8082&#10;&#10;2017.01.11&#10;-- перенастроен доступ к внутреннему репозиторию git&#10;&#10;2017.02.27&#10;-- В параметрах указал iptables 1.4.4 or later&#10;-- Открыл порт 3000 из внутренней сети (для ntopng)&#10;" ro="False">
+      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1488421521" lastInstalled="1488200055" lastModified="1488421495" platform="iptables" version="1.4.4" name="prox" comment="2010.11.10&#10;-- Добавил правило Remote Admin в таблицу NAT (для Мухи)&#10;2010.03.17&#10;-- Добавил проброс порта 3724 к компу Саши Коско&#10;2010.12.21&#10;-- открыл порт 8118 для внутренних клиентов (для TOR)&#10;-- открыл порт 9001 для внешних клиентов (для TOR relay)&#10;2010.12.22&#10;-- открыл порты (внутри) для работы ftp &#10;2011.01.14&#10;-- кроме порта 8080, открыл еще доступ к 8081 и 8082 изнутри (правило 9 &quot;allow connections to proxy server&quot;, service proxy8080)&#10;2011.01.18&#10;-- Добавил новый внешний интерфейс eth2 93.125.39.151&#10;-- настроил nat для отправки пакетов от vip-пользователей (группа nat-vip-users) через второй интернет-канал&#10;-- Удалил неиспользуемые сервисы (от коммунигейта, а также deluge и transmission torrent clients)&#10;-- Разрешил NAT всем внутренник клиентам к mail.gto.by&#10;&#10;2011.01.31&#10;-- Разрешил DHCP изнутри&#10;&#10;2011.02.18&#10;-- поменял eth0 и eth1 (чтобы гигабитный eth0 смотрел в локалкó)&#10;&#10;2011.03.01:&#10;-- добавил достóп из внóтренней сети к firebird dbms (порт 3050)&#10;&#10;2012.01.25:&#10;-- открыл НАТ к www.nalog.by - чтобы обновлялась программа Edeclaration&#10;&#10;2014.11.21:&#10;-- Добавил хост для NAT: 213.184.237.51   (nat-dst-serv5(brest-clientbank)-1)&#10;&#10;2014.11.25:&#10;-- Добавил хост 192.168.200.11 (nat_reserve4) к группе nat-vip-users&#10;&#10;2015.02.02&#10;-- Переименовал хосты nat_reserveXX, чтобы число в конце совпадала с последним числом ip-адреса&#10;-- Добавил хосты nat_reserve11 - nat_reserve20&#10;-- Добавил хосты nat_reserve08 - nat_reserve20 к группе nat-vip-users&#10;&#10;2015.04.26&#10;-- Добавил разрешение для входящих соединений OpenVPN на порт 1194&#10;&#10;2015.09.29&#10;-- Добавил хост ubuntu-serv1 (.2) и добавил его в группу vip-nat&#10;&#10;2016.02.18 &#10;-- убрал адреса серверов клиент-банка для Бреста&#10;-- Поменял порты для клиент-банка БПС-Сбербанка&#10;&#10;2016.03.15&#10;-- открыл доступ к http снаружи&#10;&#10;2016.04.04&#10;-- Добавил NAT для адресов .2-.29 и .220-.253&#10;&#10;2016.04.20&#10;-- Открыл доступ из внутренней сети к портам 8088, 18080&#10;&#10;2016.08.02&#10;-- Открыл доступ из внутренней сети к порту 8085&#10;&#10;2016.10.21&#10;-- Открыл доступ извне к 192.168.200.5:8082&#10;&#10;2017.01.11&#10;-- перенастроен доступ к внутреннему репозиторию git&#10;&#10;2017.02.27&#10;-- В параметрах указал iptables 1.4.4 or later&#10;-- Открыл порт 3000 из внутренней сети (для ntopng)&#10;" ro="False">
         <NAT id="id4083X5564" name="NAT" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
           <NATRule id="id3907X29360" disabled="False" group="" position="0" action="Translate" comment="">
             <OSrc neg="False">
@@ -1670,7 +1672,47 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id3897X17187" disabled="False" group="" log="False" position="8" action="Accept" direction="Both" comment="allow fisheye">
+          <PolicyRule id="id5610X11552" disabled="False" group="" log="False" position="8" action="Accept" direction="Both" comment="">
+            <Src neg="False">
+              <ObjectRef ref="sysid0"/>
+            </Src>
+            <Dst neg="False">
+              <ObjectRef ref="id4079X5564"/>
+            </Dst>
+            <Srv neg="False">
+              <ServiceRef ref="id5494X11552"/>
+            </Srv>
+            <Itf neg="False">
+              <ObjectRef ref="sysid0"/>
+            </Itf>
+            <When neg="False">
+              <IntervalRef ref="sysid2"/>
+            </When>
+            <PolicyRuleOptions>
+              <Option name="stateless">False</Option>
+            </PolicyRuleOptions>
+          </PolicyRule>
+          <PolicyRule id="id5526X11552" disabled="False" group="" log="False" position="9" action="Accept" direction="Both" comment="">
+            <Src neg="False">
+              <ObjectRef ref="sysid0"/>
+            </Src>
+            <Dst neg="False">
+              <ObjectRef ref="id4087X5564"/>
+            </Dst>
+            <Srv neg="False">
+              <ServiceRef ref="id5513X11552"/>
+            </Srv>
+            <Itf neg="False">
+              <ObjectRef ref="id4087X5564"/>
+            </Itf>
+            <When neg="False">
+              <IntervalRef ref="sysid2"/>
+            </When>
+            <PolicyRuleOptions>
+              <Option name="stateless">False</Option>
+            </PolicyRuleOptions>
+          </PolicyRule>
+          <PolicyRule id="id3897X17187" disabled="False" group="" log="False" position="10" action="Accept" direction="Both" comment="allow fisheye">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1715,7 +1757,7 @@
               <Option name="ulog_nlgroup">1</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id3865X4036" disabled="False" group="" log="False" position="9" action="Accept" direction="Both" comment="">
+          <PolicyRule id="id3865X4036" disabled="False" group="" log="False" position="11" action="Accept" direction="Both" comment="">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1736,7 +1778,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14730X5564" disabled="False" group="" log="False" position="10" action="Accept" direction="Both" comment="allow incoming connections for:&#10;ssh&#10;tor&#10;OpenVPN">
+          <PolicyRule id="id14730X5564" disabled="False" group="" log="False" position="12" action="Accept" direction="Both" comment="allow incoming connections for:&#10;ssh&#10;tor&#10;OpenVPN">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1761,7 +1803,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14744X5564" disabled="False" group="" log="False" position="11" action="Accept" direction="Outbound" comment="allow all outbound connections">
+          <PolicyRule id="id14744X5564" disabled="False" group="" log="False" position="13" action="Accept" direction="Outbound" comment="allow all outbound connections">
             <Src neg="False">
               <ObjectRef ref="id4079X5564"/>
             </Src>
@@ -1782,7 +1824,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14932X5564" disabled="False" group="" log="False" position="12" action="Accept" direction="Both" comment="allow torrent">
+          <PolicyRule id="id14932X5564" disabled="False" group="" log="False" position="14" action="Accept" direction="Both" comment="allow torrent">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1803,7 +1845,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14946X5564" disabled="False" group="" log="False" position="13" action="Accept" direction="Inbound" comment="allow http(s) and ftp for internal iface">
+          <PolicyRule id="id14946X5564" disabled="False" group="" log="False" position="15" action="Accept" direction="Inbound" comment="allow http(s) and ftp for internal iface">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1826,7 +1868,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14964X5564" disabled="False" group="" log="False" position="14" action="Accept" direction="Inbound" comment="allow connections to proxy server">
+          <PolicyRule id="id14964X5564" disabled="False" group="" log="False" position="16" action="Accept" direction="Inbound" comment="allow connections to proxy server">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1852,7 +1894,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id14983X5564" disabled="True" group="" log="False" position="15" action="Accept" direction="Inbound" comment="allow access to mailserver">
+          <PolicyRule id="id14983X5564" disabled="True" group="" log="False" position="17" action="Accept" direction="Inbound" comment="allow access to mailserver">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1878,7 +1920,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id15037X5564" disabled="False" group="" log="False" position="16" action="Accept" direction="Inbound" comment="allow access to our time service from internal server">
+          <PolicyRule id="id15037X5564" disabled="False" group="" log="False" position="18" action="Accept" direction="Inbound" comment="allow access to our time service from internal server">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1899,7 +1941,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id15009X5564" disabled="False" group="" log="False" position="17" action="Accept" direction="Inbound" comment="allow access to our DNS from internal network">
+          <PolicyRule id="id15009X5564" disabled="False" group="" log="False" position="19" action="Accept" direction="Inbound" comment="allow access to our DNS from internal network">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1920,7 +1962,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id15344X5564" disabled="False" group="" log="False" position="18" action="Accept" direction="Inbound" comment="allow samba to work">
+          <PolicyRule id="id15344X5564" disabled="False" group="" log="False" position="20" action="Accept" direction="Inbound" comment="allow samba to work">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1942,7 +1984,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id3818X30941" disabled="False" group="" log="False" position="19" action="Accept" direction="Both" comment="">
+          <PolicyRule id="id3818X30941" disabled="False" group="" log="False" position="21" action="Accept" direction="Both" comment="">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1963,7 +2005,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id15694X5564" disabled="False" group="" log="False" position="20" action="Accept" direction="Inbound" comment="allow VNC server">
+          <PolicyRule id="id15694X5564" disabled="True" group="" log="False" position="22" action="Accept" direction="Inbound" comment="allow VNC server">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -1984,7 +2026,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id2889X4776" disabled="False" group="" log="False" position="21" action="Accept" direction="Inbound" comment="allow HTTP">
+          <PolicyRule id="id2889X4776" disabled="False" group="" log="False" position="23" action="Accept" direction="Inbound" comment="allow HTTP">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -2006,7 +2048,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id4410X5316" disabled="False" group="" log="False" position="22" action="Deny" direction="Both" comment="All other attempts to connect to&#10;the firewall are denied and logged">
+          <PolicyRule id="id4410X5316" disabled="False" group="" log="False" position="24" action="Deny" direction="Both" comment="All other attempts to connect to&#10;the firewall are denied and logged">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
@@ -2027,7 +2069,7 @@
               <Option name="stateless">True</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id11817X4192" disabled="False" group="" log="False" position="23" action="Accept" direction="Both" comment="for NAT">
+          <PolicyRule id="id11817X4192" disabled="False" group="" log="False" position="25" action="Accept" direction="Both" comment="for NAT">
             <Src neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </Src>
@@ -2048,7 +2090,7 @@
               <Option name="stateless">False</Option>
             </PolicyRuleOptions>
           </PolicyRule>
-          <PolicyRule id="id11830X4192" disabled="False" group="" log="False" position="24" action="Deny" direction="Both" comment="default rule - drop all">
+          <PolicyRule id="id11830X4192" disabled="False" group="" log="False" position="26" action="Deny" direction="Both" comment="default rule - drop all">
             <Src neg="False">
               <ObjectRef ref="sysid0"/>
             </Src>
