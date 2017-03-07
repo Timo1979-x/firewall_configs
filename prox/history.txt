@@ -1,3 +1,6 @@
+2017.03.07
+-- allow apcupsd daemon on internal interface
+
 2017.03.02
 -- открыл доступ для uvnc viewers (порт 5900) из внутренней сети
 -- открыл доступ для uvnc servers (порт 5500) отовсюду
