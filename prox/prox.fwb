@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE FWObjectDatabase SYSTEM "fwbuilder.dtd">
-<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1541844471" id="root">
+<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1545141349" id="root">
   <Library id="syslib000" color="#d4f8ff" name="Standard" comment="Standard objects" ro="True">
     <AnyNetwork id="sysid0" name="Any" comment="Any Network" ro="False" address="0.0.0.0" netmask="0.0.0.0"/>
     <AnyIPService id="sysid1" protocol_num="0" name="Any" comment="Any IP Service" ro="False"/>
@@ -1050,6 +1050,7 @@
         <Network id="id5219X80" name="net-10.8.0.0/16" comment="" ro="False" address="10.8.0.0" netmask="255.255.0.0"/>
         <Network id="id5671X27704" name="net-192.168.200.0" comment="" ro="False" address="192.168.200.0" netmask="255.255.255.0"/>
         <Network id="id5683X7932" name="net-10.9.0.0/16" comment="" ro="False" address="10.9.0.0" netmask="255.255.0.0"/>
+        <Network id="id5682X10428" name="net-dmz-minsk" comment="" ro="False" address="192.168.100.0" netmask="255.255.255.0"/>
       </ObjectGroup>
       <ObjectGroup id="id4046X5564" name="Address Ranges" comment="" ro="False">
         <AddressRange id="id5420X5436" name="VIP NAT IP range" comment="" ro="False" start_address="192.168.200.2" end_address="192.168.200.29"/>
@@ -1134,7 +1135,7 @@
       <ServiceGroup id="id4055X5564" name="TagServices" comment="" ro="False"/>
     </ServiceGroup>
     <ObjectGroup id="id4056X5564" name="Firewalls" comment="" ro="False">
-      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1541845935" lastInstalled="1524834760" lastModified="1541855759" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
+      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1545141402" lastInstalled="1524834760" lastModified="1545141385" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
         <NAT id="id4083X5564" name="NAT" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
           <NATRule id="id3907X29360" disabled="False" group="" position="0" action="Translate" comment="">
             <OSrc neg="False">
@@ -1558,6 +1559,7 @@
             </Src>
             <Dst neg="False">
               <ObjectRef ref="id4128X5564"/>
+              <ObjectRef ref="id5682X10428"/>
             </Dst>
             <Srv neg="False">
               <ServiceRef ref="sysid1"/>
