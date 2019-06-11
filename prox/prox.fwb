@@ -578,6 +578,12 @@
       </HostOptions>
     </Host>
     <IPv4 id="id5504X10420" name="prox:enp0s20:ip2" comment="" ro="False" address="192.168.100.5" netmask="255.255.255.0"/>
+    <IPv4 id="id3759X26639" name="prox:enp4s9:ip" comment="" ro="False" address="178.124.157.42" netmask="255.255.255.252"/>
+    <Interface id="id3721X26639" dedicated_failover="False" dyn="False" label="external2" mgmt="False" security_level="0" unnum="False" unprotected="False" name="enp4s9" comment="" ro="False">
+      <InterfaceOptions>
+        <Option name="type">ethernet</Option>
+      </InterfaceOptions>
+    </Interface>
   </Library>
   <Library id="id4038X5564" color="#d2ffd0" name="User" comment="" ro="False">
     <ObjectGroup id="id4039X5564_clusters" name="Clusters" comment="" ro="False"/>
@@ -1135,43 +1141,9 @@
       <ServiceGroup id="id4055X5564" name="TagServices" comment="" ro="False"/>
     </ServiceGroup>
     <ObjectGroup id="id4056X5564" name="Firewalls" comment="" ro="False">
-      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1545141402" lastInstalled="1524834760" lastModified="1545141385" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
+      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1560237505" lastInstalled="1560237578" lastModified="1560237451" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
         <NAT id="id4083X5564" name="NAT" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
-          <NATRule id="id3907X29360" disabled="False" group="" position="0" action="Translate" comment="">
-            <OSrc neg="False">
-              <ObjectRef ref="id3717X29360"/>
-            </OSrc>
-            <ODst neg="True">
-              <ObjectRef ref="id4079X5564"/>
-              <ObjectRef ref="id4129X5564"/>
-              <ObjectRef ref="id4131X5564"/>
-              <ObjectRef ref="id4132X5564"/>
-              <ObjectRef ref="id4128X5564"/>
-              <ObjectRef ref="id4133X5564"/>
-              <ObjectRef ref="id4130X5564"/>
-              <ObjectRef ref="id3811X23013"/>
-            </ODst>
-            <OSrv neg="False">
-              <ServiceRef ref="sysid1"/>
-            </OSrv>
-            <TSrc neg="False">
-              <ObjectRef ref="id3759X26639"/>
-            </TSrc>
-            <TDst neg="False">
-              <ObjectRef ref="sysid0"/>
-            </TDst>
-            <TSrv neg="False">
-              <ServiceRef ref="sysid1"/>
-            </TSrv>
-            <ItfInb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfInb>
-            <ItfOutb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfOutb>
-            <NATRuleOptions/>
-          </NATRule>
-          <NATRule id="id15713X5564" disabled="False" group="" position="1" action="Translate" comment="">
+          <NATRule id="id15713X5564" disabled="False" group="" position="0" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="id3921X388"/>
             </OSrc>
@@ -1205,7 +1177,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id3692X22824" disabled="False" group="" position="2" action="Translate" comment="разрешить Remote admin viewer для Мухи">
+          <NATRule id="id3692X22824" disabled="False" group="" position="1" action="Translate" comment="разрешить Remote admin viewer для Мухи">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1232,7 +1204,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id3245X4068" disabled="False" group="" position="3" action="Translate" comment="клиент-банк">
+          <NATRule id="id3245X4068" disabled="False" group="" position="2" action="Translate" comment="клиент-банк">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1259,7 +1231,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id4087X22441" disabled="False" group="" position="4" action="Translate" comment="клиент-банк">
+          <NATRule id="id4087X22441" disabled="False" group="" position="3" action="Translate" comment="клиент-банк">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1287,7 +1259,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id8326X6708" disabled="False" group="" position="5" action="Translate" comment="клиент-банк">
+          <NATRule id="id8326X6708" disabled="False" group="" position="4" action="Translate" comment="клиент-банк">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1315,7 +1287,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id4015X21522" disabled="False" group="" position="6" action="Translate" comment="БелСтат">
+          <NATRule id="id4015X21522" disabled="False" group="" position="5" action="Translate" comment="БелСтат">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1342,7 +1314,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id5431X11036" disabled="False" group="" position="7" action="Translate" comment="">
+          <NATRule id="id5431X11036" disabled="False" group="" position="6" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1369,7 +1341,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id15222X4192" disabled="False" group="" position="8" action="Translate" comment="">
+          <NATRule id="id15222X4192" disabled="False" group="" position="7" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="id3DC75CE6"/>
             </OSrc>
@@ -1396,7 +1368,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id3859X17187" disabled="False" group="" position="9" action="Translate" comment="">
+          <NATRule id="id3859X17187" disabled="False" group="" position="8" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="sysid0"/>
             </OSrc>
@@ -1423,34 +1395,7 @@
             </ItfOutb>
             <NATRuleOptions/>
           </NATRule>
-          <NATRule id="id4083X17187" disabled="False" group="" position="10" action="Translate" comment="">
-            <OSrc neg="False">
-              <ObjectRef ref="sysid0"/>
-            </OSrc>
-            <ODst neg="False">
-              <ObjectRef ref="id3721X26639"/>
-            </ODst>
-            <OSrv neg="False">
-              <ServiceRef ref="id3848X17187"/>
-            </OSrv>
-            <TSrc neg="False">
-              <ObjectRef ref="sysid0"/>
-            </TSrc>
-            <TDst neg="False">
-              <ObjectRef ref="id5428X10420"/>
-            </TDst>
-            <TSrv neg="False">
-              <ServiceRef ref="sysid1"/>
-            </TSrv>
-            <ItfInb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfInb>
-            <ItfOutb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfOutb>
-            <NATRuleOptions/>
-          </NATRule>
-          <NATRule id="id3179X4036" disabled="False" group="" position="11" action="Translate" comment="">
+          <NATRule id="id3179X4036" disabled="False" group="" position="9" action="Translate" comment="">
             <OSrc neg="False">
               <ObjectRef ref="sysid0"/>
             </OSrc>
@@ -1465,33 +1410,6 @@
             </TSrc>
             <TDst neg="False">
               <ObjectRef ref="id2998X3716"/>
-            </TDst>
-            <TSrv neg="False">
-              <ServiceRef ref="sysid1"/>
-            </TSrv>
-            <ItfInb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfInb>
-            <ItfOutb neg="False">
-              <ObjectRef ref="sysid0"/>
-            </ItfOutb>
-            <NATRuleOptions/>
-          </NATRule>
-          <NATRule id="id9628X7464" disabled="False" group="" position="12" action="Translate" comment="">
-            <OSrc neg="False">
-              <ObjectRef ref="sysid0"/>
-            </OSrc>
-            <ODst neg="False">
-              <ObjectRef ref="id3721X26639"/>
-            </ODst>
-            <OSrv neg="False">
-              <ServiceRef ref="id3194X4036"/>
-            </OSrv>
-            <TSrc neg="False">
-              <ObjectRef ref="sysid0"/>
-            </TSrc>
-            <TDst neg="False">
-              <ObjectRef ref="id5969X7464"/>
             </TDst>
             <TSrv neg="False">
               <ServiceRef ref="sysid1"/>
@@ -1522,7 +1440,6 @@
             </Srv>
             <Itf neg="False">
               <ObjectRef ref="id4085X5564"/>
-              <ObjectRef ref="id3721X26639"/>
             </Itf>
             <When neg="False">
               <IntervalRef ref="sysid2"/>
@@ -2166,23 +2083,17 @@
         <Routing id="id4084X5564" name="Routing" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
           <RuleSetOptions/>
         </Routing>
-        <Interface id="id4085X5564" dedicated_failover="False" dyn="False" label="external1" mgmt="False" security_level="0" unnum="False" unprotected="False" name="enp4s8" comment="" ro="False">
-          <IPv4 id="id4086X5564" name="prox:enp4s8:ip" comment="" ro="False" address="192.168.99.5" netmask="255.255.255.0"/>
+        <Interface id="id4085X5564" dedicated_failover="False" dyn="False" label="external1" mgmt="False" security_level="0" unnum="False" unprotected="False" name="enp1s6" comment="" ro="False">
+          <IPv4 id="id4086X5564" name="prox:enp1s6:ip" comment="" ro="False" address="192.168.99.5" netmask="255.255.255.0"/>
           <InterfaceOptions/>
         </Interface>
-        <Interface id="id4087X5564" dedicated_failover="False" dyn="False" label="internal" mgmt="True" security_level="100" unnum="False" unprotected="False" name="enp0s20" comment="" ro="False">
-          <IPv4 id="id4088X5564" name="prox:enp0s20:ip" comment="" ro="False" address="192.168.200.5" netmask="255.255.255.0"/>
+        <Interface id="id4087X5564" dedicated_failover="False" dyn="False" label="internal" mgmt="True" security_level="100" unnum="False" unprotected="False" name="enp0s7" comment="" ro="False">
+          <IPv4 id="id4088X5564" name="prox:enp0s7:ip" comment="" ro="False" address="192.168.200.5" netmask="255.255.255.0"/>
           <InterfaceOptions/>
         </Interface>
         <Interface id="id14599X5564" dedicated_failover="False" dyn="False" label="loopback" mgmt="False" security_level="100" unnum="False" unprotected="False" name="lo" comment="" ro="False">
           <IPv4 id="id14600X5564" name="prox:lo:ip" comment="" ro="False" address="127.0.0.1" netmask="255.0.0.0"/>
           <InterfaceOptions/>
-        </Interface>
-        <Interface id="id3721X26639" dedicated_failover="False" dyn="False" label="external2" mgmt="False" security_level="0" unnum="False" unprotected="False" name="enp4s9" comment="" ro="False">
-          <IPv4 id="id3759X26639" name="prox:enp4s9:ip" comment="" ro="False" address="178.124.157.42" netmask="255.255.255.252"/>
-          <InterfaceOptions>
-            <Option name="type">ethernet</Option>
-          </InterfaceOptions>
         </Interface>
         <Management address="192.168.200.5">
           <SNMPManagement enabled="False" snmp_read_community="" snmp_write_community=""/>
