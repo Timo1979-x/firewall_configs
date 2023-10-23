@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE FWObjectDatabase SYSTEM "fwbuilder.dtd">
-<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1572249582" id="root">
+<FWObjectDatabase xmlns="http://www.fwbuilder.org/1.0/" version="22" lastModified="1594889272" id="root">
   <Library id="syslib000" color="#d4f8ff" name="Standard" comment="Standard objects" ro="True">
     <AnyNetwork id="sysid0" name="Any" comment="Any Network" ro="False" address="0.0.0.0" netmask="0.0.0.0"/>
     <AnyIPService id="sysid1" protocol_num="0" name="Any" comment="Any IP Service" ro="False"/>
@@ -1046,17 +1046,19 @@
         </Host>
       </ObjectGroup>
       <ObjectGroup id="id4045X5564" name="Networks" comment="" ro="False">
-        <Network id="id4128X5564" name="net-int-minsk" comment="" ro="False" address="192.168.200.0" netmask="255.255.255.0"/>
-        <Network id="id4129X5564" name="net-int-brest" comment="" ro="False" address="192.168.202.0" netmask="255.255.255.0"/>
-        <Network id="id4130X5564" name="net-int-vitebsk" comment="" ro="False" address="192.168.204.0" netmask="255.255.255.0"/>
-        <Network id="id4131X5564" name="net-int-gomel" comment="" ro="False" address="192.168.206.0" netmask="255.255.255.0"/>
-        <Network id="id4132X5564" name="net-int-grodno" comment="" ro="False" address="192.168.208.0" netmask="255.255.255.0"/>
-        <Network id="id4133X5564" name="net-int-mogilev" comment="" ro="False" address="192.168.210.0" netmask="255.255.255.0"/>
-        <Network id="id3811X23013" name="net-int-minsk-otdel" comment="" ro="False" address="192.168.212.0" netmask="255.255.255.0"/>
+        <Network id="id4128X5564" name="net-int-minsk-center" comment="" ro="False" address="192.168.200.0" netmask="255.255.255.0"/>
+        <Network id="id4129X5564" name="net-int-region-1" comment="" ro="False" address="192.168.202.0" netmask="255.255.255.0"/>
+        <Network id="id4130X5564" name="net-int-region-2" comment="" ro="False" address="192.168.204.0" netmask="255.255.255.0"/>
+        <Network id="id4131X5564" name="net-int-region-3" comment="" ro="False" address="192.168.206.0" netmask="255.255.255.0"/>
+        <Network id="id4132X5564" name="net-int-region-4" comment="" ro="False" address="192.168.208.0" netmask="255.255.255.0"/>
+        <Network id="id4133X5564" name="net-int-region-6" comment="" ro="False" address="192.168.210.0" netmask="255.255.255.0"/>
+        <Network id="id3811X23013" name="net-int-ds210" comment="" ro="False" address="192.168.212.0" netmask="255.255.255.0"/>
         <Network id="id5219X80" name="net-10.8.0.0/16" comment="" ro="False" address="10.8.0.0" netmask="255.255.0.0"/>
         <Network id="id5671X27704" name="net-192.168.200.0" comment="" ro="False" address="192.168.200.0" netmask="255.255.255.0"/>
         <Network id="id5683X7932" name="net-10.9.0.0/16" comment="" ro="False" address="10.9.0.0" netmask="255.255.0.0"/>
         <Network id="id5682X10428" name="net-dmz-minsk" comment="" ro="False" address="192.168.100.0" netmask="255.255.255.0"/>
+        <Network id="id5490X10260" name="net-int-region-5" comment="" ro="False" address="192.168.216.0" netmask="255.255.255.0"/>
+        <Network id="id5501X10260" name="net-int-region-7" comment="" ro="False" address="192.168.214.0" netmask="255.255.255.0"/>
       </ObjectGroup>
       <ObjectGroup id="id4046X5564" name="Address Ranges" comment="" ro="False">
         <AddressRange id="id5420X5436" name="VIP NAT IP range" comment="" ro="False" start_address="192.168.200.2" end_address="192.168.200.29"/>
@@ -1142,7 +1144,7 @@
       <ServiceGroup id="id4055X5564" name="TagServices" comment="" ro="False"/>
     </ServiceGroup>
     <ObjectGroup id="id4056X5564" name="Firewalls" comment="" ro="False">
-      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1572251274" lastInstalled="1560237578" lastModified="1572249612" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
+      <Firewall id="id4079X5564" host_OS="linux24" inactive="False" lastCompiled="1594889452" lastInstalled="1594889530" lastModified="1594889440" platform="iptables" version="1.4.4" name="prox" comment="" ro="False">
         <NAT id="id4083X5564" name="NAT" comment="" ro="False" ipv4_rule_set="False" ipv6_rule_set="False" top_rule_set="True">
           <NATRule id="id15713X5564" disabled="False" group="" position="0" action="Translate" comment="">
             <OSrc neg="False">
@@ -1157,6 +1159,8 @@
               <ObjectRef ref="id4133X5564"/>
               <ObjectRef ref="id4130X5564"/>
               <ObjectRef ref="id3811X23013"/>
+              <ObjectRef ref="id5490X10260"/>
+              <ObjectRef ref="id5501X10260"/>
             </ODst>
             <OSrv neg="False">
               <ServiceRef ref="sysid1"/>
